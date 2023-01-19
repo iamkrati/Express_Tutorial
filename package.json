@@ -1,0 +1,23 @@
+{
+  "name": "react_tutorial_thapa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamkrati/React_Tutorial_Thapa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamkrati/React_Tutorial_Thapa/issues"
+  },
+  "homepage": "https://github.com/iamkrati/React_Tutorial_Thapa#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
