@@ -1,16 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body style="background-color:aqua;">
-    <h1>This is an EJS File</h1>
-    <h2>Welcome</h3>
-    <h2> Random Number : <%= 1+2+3 %></h2>
-    <h2> Random Number : <%= Math.floor(Math.random()*10) %></h2>
-<!-- </h2> -->
-</body>
-</html>
+<%- include('partials/navbar.ejs')%>
+    <%- include('partials/header.ejs')%>
+        <div>
+            <h1>This is an EJS File</h1>
+            <h2>Welcome</h3>
+                <!-- <h2> Number : <%= 1+2+3 %> -->
+                <!-- </h2> -->
+                <!-- <h2> Random Number : <%= Math.floor(Math.random()*10) %> -->
+                <!-- </h2> -->
+
+                <!-- <%if(Math.floor(Math.random()*10) %2===0) {%>
+            <h2>This is an even number</h2>
+            <%} else {%>
+                <h2>This is a odd number</h2>
+                <% } %> -->
+
+
+
+                <h2>
+                    <%= rn %>
+                </h2>
+                <%if(rn %2===0) {%>
+                    <h2>This is an even number</h2>
+                    <%} else {%>
+                        <h2>This is a odd number</h2>
+                        <% } %>
+
+                            <h2>Array</h2>
+                            <!-- <h1> -->
+                            <ul>
+                                <% for(const todo of todos) { %>
+                                    <li>
+                                        <%=todo%>
+                                    </li>
+                                    <%}%>
+                            </ul>
+                            <!-- </h1> -->
+
+
+                            <% let age=20%>
+                                <script>
+                                    let myage = <%=age%>;
+                                    alert(myage);
+                                </script>
+
+                                <%- include('partials/buttons')%>
+        </div>
+        <%- include('partials/footer.ejs')%>
