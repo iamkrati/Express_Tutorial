@@ -116,9 +116,13 @@ app.get('/search',(req,res)=>{
 })
 
 
+
 app.get('*',(req,res)=>{
    res.send("Wrong URL Found");
 })
+
+
+
 
 app.listen(port,()=>{
      console.log(`server is running at ${port}`);

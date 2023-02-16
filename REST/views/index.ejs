@@ -13,13 +13,16 @@
         Comment
     </h2>
    
-        <% for(const comment of comments){ %>
+        <% for(const co of comment){ %>
             <ul>
                 <li>
-                   <%=comment.user%>  <strong><%=comment.text %></strong>
+                   <%= co.user %>                
                 </li>
+                <strong><%= co.text %> </strong>
             </ul>
             <%}%>
+            <a href="/comment/add">Add   </a>
+    <!-- <input type ="text"> -->
 </body>
 
 </html>
