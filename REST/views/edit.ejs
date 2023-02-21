@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/comment/<%= co.id %>" method="POST">
+    <form action="/comment/<%=co.id %>?_method=PATCH" method="POST">
         <label>
             id
           </label>
@@ -19,7 +19,7 @@
               comment
           </label>
           <textarea for="text" name="text"><%= co.text %></textarea>
-          <button type="submit">UPDATe</button>
+          <button type="submit">UPDATE</button>
 
     </form>
 </body>

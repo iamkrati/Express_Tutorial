@@ -7,9 +7,11 @@ const path=require("path");
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));//two underscores
 
+
+const methodOverride=require("method-override");
 const {v4: uuid}=require('uuid');
 
-const comment=[
+let comment=[
     {
         id:uuid(),
         user: "john",
@@ -38,9 +40,11 @@ app.get('/comment',(req,res)=>{
 })
 
 app.use(express.urlencoded({extended:true}));
-// app.use(methodOverride('_method'));
+app.use(methodOverride('_method'));
 
-
+app.get('/',(req,res)=>{
+    res.send("CRUD");
+})
 
 app.get('/comment/add',(req,res)=>{
     res.render('add');
@@ -65,7 +69,7 @@ app.get('/comment/:commentid',(req,res)=>{
 app.get('/comment/:commentid/edit',(req,res)=> {
     const {commentid}=req.params;
 
-    const fd=comment.find((comment)=>comment.id===parseInt(commentid));
+    const fd=comment.find((comment)=>comment.id===(commentid));
 
     res.render('edit',{co:fd});
 })
@@ -74,11 +78,26 @@ app.patch('/comment/:commentid',(req,res)=>
 {
     const {commentid}=req.params;
 
-    const fd=comment.find((comment)=>comment.id===parseInt(commentid));
-  
-      res.send('PATCH Request');
+    const fd=comment.find((comment)=>comment.id===(commentid));
+     
+    const {text,userg}=req.body;
+    fd.text=text;
+    fd.user=userg;
+    res.redirect('/comment');
     
 })
+
+
+//delete
+
+app.delete('/comment/:commentid',(req,res)=>{
+    const {commentid}=req.params;
+    const newcomment=comment.filter((comment)=> comment.id!==commentid);
+    comment=newcomment;
+    res.redirect('/comment');
+})
+
+
 
 app.listen(port,()=>{
      console.log(`server is running at ${port}`);

@@ -81,9 +81,9 @@
 
 
 
-const express=require("express");
-const app=express();//express fnctn returns
-const port=8000;
+// const express=require("express");
+// const app=express();//express fnctn returns
+// const port=8000;
 
 
 // app.use((req,res)=>{

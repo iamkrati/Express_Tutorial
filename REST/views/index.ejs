@@ -19,7 +19,10 @@
                    <%= co.user %>                
                 </li>
                 <strong><%= co.text %> </strong>
-                <strong><%= co.id %> </strong>
+                <!-- <strong><%= co.id %> </strong> -->
+                <form action="/comment/<%= co.id %>?_method=DELETE" method="POST">
+                <button>DELETEG</button>
+            </form>
             </ul>
             <%}%>
             <a href="/comment/add">Add   </a>
