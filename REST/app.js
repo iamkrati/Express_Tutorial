@@ -7,26 +7,26 @@ const path=require("path");
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));//two underscores
 
-
+const {v4: uuid}=require('uuid');
 
 const comment=[
     {
-        id:0,
+        id:uuid(),
         user: "john",
         text:"this is first comment"
     },
     {
-        id:1,
+        id:uuid(),
         user: "johng",
         text:"this is second comment"
     },
     {
-        id:2,
+        id:uuid(),
         user: "johngoyal",
         text:"this is third comment"
     },
     {
-        id:3,
+        id:uuid(),
         user: "krati",
         text:"this is fourth comment"
     }
@@ -48,7 +48,7 @@ app.get('/comment/add',(req,res)=>{
 app.post('/comment',(req,res)=>{
     console.log(req.body);
     const {user,text}=req.body;
-    comment.push({id:comment.length , user , text});
+    comment.push({id:uuid() , user , text});
     res.redirect('/comment');
 })
 
@@ -56,7 +56,7 @@ app.post('/comment',(req,res)=>{
 app.get('/comment/:commentid',(req,res)=>{
     const {commentid}=req.params;
 
-    const fd=comment.find((comment)=>comment.id===parseInt(commentid));
+    const fd=comment.find((comment)=>comment.id===(commentid));
 
     res.render('show',{co:fd});
 })
